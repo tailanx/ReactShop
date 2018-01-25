@@ -11,21 +11,30 @@ import {
   Text,
   View
 } from 'react-native';
+import {HomeDemo} from "./app/home/home"
+import {MeDemo} from "./app/me/me"
+import {MoreDemo} from "./app/more/more"
+import {ShopDemo} from "./app/shop/shop"
+import {UIDemo} from "./app/ui"
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-import {Scene,Router} from 'react-native-router-flux'
+
+import {Scene,Router,Stack} from 'react-native-router-flux'
 
 export default class App extends Component {
   render() {
     return (
         <Router>
           <Scene key  = 'root'>
+            <Stack key="init" back>
+            <Scene key="ui" initial component = {UIDemo} hideNavBar/>
+            {/*<Scene*/}
+             {/*key = 'Homapage'*/}
+             {/*tabs = {true}*/}
+             {/*hideNavBar  ={true}*/}
+             {/**/}
+            {/*/>*/}
 
+            </Stack>
           </Scene>
         </Router>
     );
